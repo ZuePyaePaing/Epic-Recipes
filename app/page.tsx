@@ -1,9 +1,11 @@
-
+import CardsSection from "@/components/CardsSection";
 
 const page = () => {
   return (
-    <div>page</div>
-  )
-}
+    <section className="w-full mx-auto">
+      <CardsSection />
+    </section>
+  );
+};
 
-export default page
+export default page;

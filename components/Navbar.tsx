@@ -14,7 +14,7 @@ type Props = {};
 const Navbar = (props: Props) => {
   const { setTheme } = useTheme();
   return (
-    <nav className=" py-4 flex items-center justify-between">
+    <nav className=" p-4 flex items-center justify-between">
       <Link href={"/"}>
         <h1 className="text-2xl font-bold">EPICRECIPES</h1>
       </Link>
