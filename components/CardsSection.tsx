@@ -1,14 +1,26 @@
 import React from "react";
 import RecipeCard from "./RecipeCard";
 
-type Props = {};
+interface Recipe {
+  title: string;
+  cook_time: string;
+  author: string;
+  created_at: string;
+  description: string;
+  slug: string;
+  modified_title: string;
+}
 
-const CardsSection = (props: Props) => {
+interface CardsSectionProps {
+  recipes: Recipe[];
+}
+
+const CardsSection: React.FC<CardsSectionProps> = ({ recipes }) => {
   return (
     <section className=" flex gap-3 flex-wrap justify-center">
-      <RecipeCard />
-      <RecipeCard />
-      <RecipeCard />
+      {recipes.map((recipe, index) => (
+        <RecipeCard key={index} {...recipe} />
+      ))}
     </section>
   );
 };

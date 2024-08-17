@@ -8,34 +8,52 @@ import {
   CardTitle,
 } from "./ui/card";
 import Link from "next/link";
-import { ArrowUpRight, Calendar } from "lucide-react";
+import { ArrowUpRight, Calendar, Clock } from "lucide-react";
 import { Badge } from "./ui/badge";
 
-type Props = {};
+type Props = {
+  title: string;
+  cook_time: string;
+  author: string;
+  created_at: string;
+  description: string;
+  slug: string;
+  modified_title: string;
+};
 
-const RecipeCard = (props: Props) => {
+const RecipeCard = ({
+  title,
+  cook_time,
+  author,
+  created_at,
+  description,
+  slug,
+}: Props) => {
   return (
     <Card className="max-w-[360px]">
       <CardHeader>
-        <CardTitle>Reciepe Name</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <CardDescription>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam,
-          fugiat adipisci officiis veritatis id sint cupiditate distinctio eius
-          at eum, dolorem voluptatem dicta. Distinctio aut optio id delectus
-          quasi velit?
-        </CardDescription>
-      </CardContent>
-      <CardFooter className=" flex items-center justify-between">
-        <div className="flex gap-x-3 ">
-          <Badge className="text-xs font-medium text-nowrap">@ Mg Kaung</Badge>
+        <CardTitle className="mb-3">{title}</CardTitle>
+        <div className=" flex items-center  gap-x-2">
+          <Badge className="text-xs font-medium text-nowrap">{author}</Badge>
           <Badge className="text-xs font-medium text-nowrap">
-            <Calendar className=" w-4 h-4" />
-            16/8/2024
+            <Clock className=" w-4 h-4 me-1" />
+
+            {created_at}
           </Badge>
         </div>
-        <Link href={"/recipe"} className=" flex items-center text-nowrap transition-all hover:text-red-600">
+      </CardHeader>
+      <CardContent>
+        <CardDescription>{description}</CardDescription>
+      </CardContent>
+      <CardFooter className=" flex items-center justify-between">
+        <Badge className="text-xs font-medium text-nowrap">
+          <Clock className=" w-4 h-4 me-1" />
+          {cook_time}
+        </Badge>
+        <Link
+          href={`/recipe/${slug}`}
+          className=" flex items-center text-nowrap transition-all hover:text-red-600"
+        >
           <p className=" text-xs font-medium">see more</p>
           <ArrowUpRight className=" w-4 h-4" />
         </Link>

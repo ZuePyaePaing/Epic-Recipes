@@ -25,7 +25,7 @@ const Navbar = (props: Props) => {
             <Moon className=" scale-0  transition-all absolute dark:rotate-0 dark:scale-100" />
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent>
+        <DropdownMenuContent align="end">
           <DropdownMenuItem onClick={() => setTheme("light")}>
             Light
           </DropdownMenuItem>
